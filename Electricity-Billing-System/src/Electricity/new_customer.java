@@ -88,7 +88,7 @@ public class new_customer extends JFrame implements ActionListener{
         String h = t7.getText();
         
         String q1 = "insert into emp values('"+a+"','"+c+"','"+d+"','"+e+"','"+f+"','"+g+"','"+h+"')";
-        
+         if(ae.getSource()==b1) {
         try{
             conn c1 = new conn();
             c1.s.executeUpdate(q1);
@@ -98,6 +98,10 @@ public class new_customer extends JFrame implements ActionListener{
             
         }catch(Exception ex){
              ex.printStackTrace();
+        }
+             }
+        else {
+        	setVisible(false);
         }
         
     }
