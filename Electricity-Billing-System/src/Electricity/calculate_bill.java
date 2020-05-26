@@ -23,7 +23,30 @@ public class calculate_bill extends JFrame implements ActionListener{
         l5 = new JLabel("Month");
         
         t1 = new JTextField();
+        //this is optional code for taking data(meter_number) from EMP Table, to add in C1 (choice section)
+        /**String y[] = new String[200]; //array of length 200
+        try {
+        int i = 0;
+        conn Conn = new conn();
+        String q2 = "SELECT *  FROM EMP ORDER BY meter_number ASC";
+        ResultSet rs = Conn.s.executeQuery(q2);  // Till here I've took all the data of EMP Table, order by meter_number, in accending order(ASC)
         
+        while(rs.next()) {
+        	y[i]=rs.getString("meter_number");
+        	i++;
+        }// I am running a loop for getting data from meter_number
+        }catch (Exception e){
+        	e.printStackTrace();
+        }
+        
+        String a = "";
+        c1 = new Choice();
+        for(int j = 0;j<=10;j++) {
+        	if(y[j]!=null) {
+        	a = y[j];
+        	c1.add(a);
+        	}//running a loop to add meter_number data stored in array y to c1 Choice one by one
+        }**/
         c1 = new Choice();
         c1.add("1001");
         c1.add("1002");
@@ -96,6 +119,7 @@ public class calculate_bill extends JFrame implements ActionListener{
         setLocation(350,220);
     }
     public void actionPerformed(ActionEvent ae){
+        if(ae.getSource()==b1) {
         String a = c1.getSelectedItem();
         String b = t1.getText();
         String c = c2.getSelectedItem();
@@ -114,6 +138,9 @@ public class calculate_bill extends JFrame implements ActionListener{
         }catch(Exception aee){
             aee.printStackTrace();
         }
+        }else if (ae.getSource()==b2){
+	        	setVisible(false);
+	        }
         
         
     }
