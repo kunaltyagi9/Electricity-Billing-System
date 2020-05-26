@@ -7,6 +7,7 @@ import javax.swing.*;
 public class splash {
     public static void main(String[] args){
         fframe f1 = new fframe();
+        f1.setUndecorated(true);//remove title bar
         f1.setVisible(true);
         int i;
         int x=1;
