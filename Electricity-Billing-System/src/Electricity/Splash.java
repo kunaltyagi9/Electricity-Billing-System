@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class splash {
+public class Splash {
     public static void main(String[] args){
         fframe f1 = new fframe();
         f1.setVisible(true);

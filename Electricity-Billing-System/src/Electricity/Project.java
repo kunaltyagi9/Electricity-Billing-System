@@ -5,8 +5,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Project extends JFrame implements ActionListener{
-    Project(){
+    String person;
+    String meter;
+    Project(String p, String m){
         super("Electricity Billing System");
+        this.person = p;
+        this.meter = m;
         
         setSize(1920,1030);
         
@@ -22,8 +26,18 @@ public class Project extends JFrame implements ActionListener{
         JMenu master = new JMenu("Master");
         JMenuItem m1 = new JMenuItem("New Customer");
         JMenuItem m2 = new JMenuItem("Customer Details");
+        JMenuItem u1 = new JMenuItem("Pay Bill");
         JMenuItem m3 = new JMenuItem("Deposit Details");
         master.setForeground(Color.BLUE);
+        
+        /* ---- Pay Bill ---- */
+        u1.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon4 = new ImageIcon(ClassLoader.getSystemResource("icon/icon4.png"));
+        Image image4 = icon4.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+        u1.setIcon(new ImageIcon(image4));
+        u1.setMnemonic('P');
+        u1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
+        u1.setBackground(Color.WHITE);
         
         
         /* ---- Customer Details ---- */
@@ -56,25 +70,45 @@ public class Project extends JFrame implements ActionListener{
         m1.addActionListener(this);
         m2.addActionListener(this);
         m3.addActionListener(this);
+        u1.addActionListener(this);
+        
         
         // --------------------------------------------------------------------------------------------
         
         
         /* Second Column */
-        JMenu user = new JMenu("User");
-        JMenuItem u1 = new JMenuItem("Pay Bill");
-        JMenuItem u2 = new JMenuItem("Calculate Bill");
-        JMenuItem u3 = new JMenuItem("Last Bill");
-        user.setForeground(Color.RED);
+        JMenu info = new JMenu("Information");
+        JMenuItem iu2 = new JMenuItem("Update Information");
+        JMenuItem iu3 = new JMenuItem("View Information");
+        info.setForeground(Color.RED);
         
-        /* ---- Pay Bill ---- */
-        u1.setFont(new Font("monospaced",Font.PLAIN,12));
-        ImageIcon icon4 = new ImageIcon(ClassLoader.getSystemResource("icon/icon4.png"));
-        Image image4 = icon4.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
-        u1.setIcon(new ImageIcon(image4));
-        u1.setMnemonic('P');
-        u1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.CTRL_MASK));
-        u1.setBackground(Color.WHITE);
+        /* ---- Bill Details ---- */
+        iu2.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon12 = new ImageIcon(ClassLoader.getSystemResource("icon/icon5.png"));
+        Image image12 = icon12.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+        iu2.setIcon(new ImageIcon(image12));
+        iu2.setMnemonic('B');
+        iu2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, ActionEvent.CTRL_MASK));
+        iu2.setBackground(Color.WHITE);
+        
+        /* ---- Last Bill ----*/
+        iu3.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon13 = new ImageIcon(ClassLoader.getSystemResource("icon/icon6.png"));
+        Image image13 = icon13.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+        iu3.setIcon(new ImageIcon(image13));
+        iu3.setMnemonic('L');
+        iu3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
+        iu3.setBackground(Color.WHITE);
+        
+        iu2.addActionListener(this);
+        iu3.addActionListener(this);
+        
+        //-------------------------------------------------------------------------
+        /* Second Column */
+        JMenu user = new JMenu("User");
+        JMenuItem u2 = new JMenuItem("Calculate Bill");
+        JMenuItem u3 = new JMenuItem("Bill Details");
+        user.setForeground(Color.BLUE);
         
         /* ---- Bill Details ---- */
         u2.setFont(new Font("monospaced",Font.PLAIN,12));
@@ -94,17 +128,15 @@ public class Project extends JFrame implements ActionListener{
         u3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, ActionEvent.CTRL_MASK));
         u3.setBackground(Color.WHITE);
         
-        u1.addActionListener(this);
         u2.addActionListener(this);
         u3.addActionListener(this);
-        
         
         // --------------------------------------------------------------------------------------------- 
         
         /* Third Column*/
         JMenu report = new JMenu("Report");
         JMenuItem r1 = new JMenuItem("Generate Bill");
-        report.setForeground(Color.BLUE);
+        report.setForeground(Color.RED);
         
         /* ---- Report ---- */
         r1.setFont(new Font("monospaced",Font.PLAIN,12));
@@ -124,7 +156,7 @@ public class Project extends JFrame implements ActionListener{
         JMenuItem ut1 = new JMenuItem("Notepad");
         JMenuItem ut2 = new JMenuItem("Calculator");
         JMenuItem ut3 = new JMenuItem("Web Browser");
-        utility.setForeground(Color.RED); 
+        utility.setForeground(Color.BLUE); 
         
         /* ---- Calender ---- */
         ut1.setFont(new Font("monospaced",Font.PLAIN,12));
@@ -161,8 +193,26 @@ public class Project extends JFrame implements ActionListener{
         // ---------------------------------------------------------------------------------------
         
         /*Fifth Column */
-        JMenu exit = new JMenu("Exit");
-        JMenuItem ex = new JMenuItem("Exit");
+        JMenu about = new JMenu("About");
+        JMenuItem eabout = new JMenuItem("About");
+        about.setForeground(Color.RED);
+        
+        /* ---- Exit ---- */
+        eabout.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon31 = new ImageIcon(ClassLoader.getSystemResource("icon/icon5.png"));
+        Image image41 = icon31.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+        eabout.setIcon(new ImageIcon(image41));
+        eabout.setMnemonic('Z');
+        eabout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
+        eabout.setBackground(Color.WHITE);
+        
+        eabout.addActionListener(this);
+        
+        
+        //-------------------------------------------------------------------------------
+        /*Fifth Column */
+        JMenu exit = new JMenu("Logout");
+        JMenuItem ex = new JMenuItem("Logout");
         exit.setForeground(Color.BLUE);
         
         /* ---- Exit ---- */
@@ -175,17 +225,18 @@ public class Project extends JFrame implements ActionListener{
         ex.setBackground(Color.WHITE);
         
         ex.addActionListener(this);
-        
-        
         // ---------------------------------------------------------------------------------------------
                
         
         master.add(m1);
         master.add(m2);
         master.add(m3);
+        master.add(u2);
+        
+        info.add(iu2);
+        info.add(iu3);
         
         user.add(u1);
-        user.add(u2);
         user.add(u3);
         
         report.add(r1);
@@ -194,12 +245,22 @@ public class Project extends JFrame implements ActionListener{
         utility.add(ut2);
         utility.add(ut3);
         
+        about.add(eabout);
+        
         exit.add(ex);
-         
-        mb.add(master);
-        mb.add(user);
-        mb.add(report);
+        //p = "Admin";
+        if(p.equals("Admin")){
+            mb.add(master);
+        }else{
+            mb.add(info);
+            mb.add(user);
+            mb.add(report);
+        }
+        
+        
+        
         mb.add(utility);
+        mb.add(about);
         mb.add(exit);
         
         setJMenuBar(mb);    
@@ -211,16 +272,16 @@ public class Project extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae){
         String msg = ae.getActionCommand();
         if(msg.equals("Customer Details")){
-            new customer_details().setVisible(true);
+            new CustomerDetails().setVisible(true);
             
         }else if(msg.equals("New Customer")){
-            new new_customer().setVisible(true);
+            new NewCustomer().setVisible(true);
             
         }else if(msg.equals("Calculate Bill")){
-            new calculate_bill().setVisible(true);
+            new CalculateBill().setVisible(true);
             
         }else if(msg.equals("Pay Bill")){
-            new pay_bill().setVisible(true);
+            new PayBill(meter).setVisible(true);
            
         }else if(msg.equals("Notepad")){
             try{
@@ -234,19 +295,28 @@ public class Project extends JFrame implements ActionListener{
             try{
                 Runtime.getRuntime().exec("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
             }catch(Exception e){ }
-        }else if(msg.equals("Exit")){
-            System.exit(0);
+        }else if(msg.equals("Logout")){
+            this.setVisible(false);
+            new Login().setVisible(true);
         }else if(msg.equals("Generate Bill")){
-            new generate_bill().setVisible(true);
-            
+            new GenerateBill(meter).setVisible(true);
+        }else if(msg.equals("Bill Details")){
+            new BillDetails(meter).setVisible(true);
+        }else if(msg.equals("Update Information")){
+            new UpdateInfo(meter).setVisible(true);
+        }else if(msg.equals("View Information")){
+            new ViewInfo(meter).setVisible(true);
+        }else if(msg.equals("Deposit Details")){
+            new DepositDetails().setVisible(true);
+        }else if(msg.equals("About")){
+            new About().setVisible(true);
         }
-        
         
     }
     
     
     public static void main(String[] args){
-        new Project().setVisible(true);
+        new Project("", "").setVisible(true);
     }
     
 }

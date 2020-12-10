@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class pay_bill extends JFrame{
-    pay_bill(){
+public class Paytm extends JFrame{
+    Paytm(String meter){
         JEditorPane j = new JEditorPane();
         j.setEditable(false);   
 
@@ -20,11 +20,22 @@ public class pay_bill extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().add(scrollPane);
         setPreferredSize(new Dimension(800,600));
-        setSize(800,800);
-        setLocation(250,120);
+                
+        JButton back=new JButton("Back");
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new PayBill(meter).setVisible(true);
+            }
+        });
+        back.setBounds(610, 20, 80, 40);
+        j.add(back);
+        
+        setSize(900,600);
+        setLocation(550,220);
         setVisible(true);
     }
     public static void main(String[] args){
-        new pay_bill().setVisible(true);
+        new Paytm("").setVisible(true);
     }
 }
