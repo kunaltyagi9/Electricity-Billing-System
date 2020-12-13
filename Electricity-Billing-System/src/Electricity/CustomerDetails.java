@@ -9,7 +9,7 @@ public class CustomerDetails extends JFrame implements ActionListener{
  
     JTable t1;
     JButton b1;
-    String x[] = {"Customer Name","Meter No","Address","City","State","Email","Phone Number"};
+    String x[] = {"Customer Name","Meter Number","Address","City","State","Email","Phone"};
     String y[][] = new String[40][8];
     int i=0, j=0;
     CustomerDetails(){
@@ -23,7 +23,7 @@ public class CustomerDetails extends JFrame implements ActionListener{
             ResultSet rs  = c1.s.executeQuery(s1);
             while(rs.next()){
                 y[i][j++]=rs.getString("name");
-                y[i][j++]=rs.getString("meter_no");
+                y[i][j++]=rs.getString("meter");
                 y[i][j++]=rs.getString("address");
                 y[i][j++]=rs.getString("city");
                 y[i][j++]=rs.getString("state");

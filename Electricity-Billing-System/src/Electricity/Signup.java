@@ -1,170 +1,154 @@
+ /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Electricity;
 
-
-import java.awt.*;
 import javax.swing.*;
-import java.sql.*;
-import java.awt.event.*;
 import javax.swing.border.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Signup extends JFrame implements ActionListener{
-
-    private JPanel contentPane;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    private JTextField t1;
-    private JButton b1, b2;
-    private JComboBox comboBox;
-    JLabel l1;
-
-
-    public static void main(String[] args) {
-        new Signup().setVisible(true);
-    }
-
-    public Signup() {
-        setBounds(600, 250, 700, 406);
-	contentPane = new JPanel();
-	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-	contentPane.setBackground(Color.WHITE);
-	contentPane.setLayout(null);
+    JPanel p1;
+    JTextField t1, t2, t3, t4;
+    Choice c1;
+    JButton b1, b2;
+    Signup(){
+        setBounds(600, 250, 700, 400);
         
-	JLabel lblUsername = new JLabel("Username :");
-	lblUsername.setForeground(Color.DARK_GRAY);
-	lblUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
-	lblUsername.setBounds(99, 86, 92, 26);
-	contentPane.add(lblUsername);
-
-	JLabel lblName = new JLabel("Name :");
-	lblName.setForeground(Color.DARK_GRAY);
-	lblName.setFont(new Font("Tahoma", Font.BOLD, 14));
-	lblName.setBounds(99, 123, 92, 26);
-	contentPane.add(lblName);
-
-	JLabel lblPassword = new JLabel("Password :");
-	lblPassword.setForeground(Color.DARK_GRAY);
-	lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-	lblPassword.setBounds(99, 160, 92, 26);
-	contentPane.add(lblPassword);
-
-	comboBox = new JComboBox(new String[] { "Admin", "Customer"});
-	comboBox.setBounds(265, 202, 148, 20);
-	contentPane.add(comboBox);
+        p1 = new JPanel();
+        p1.setBounds(30, 30, 650, 300);
+        p1.setLayout( null);
+        p1.setBackground(Color.WHITE);
+        p1.setForeground(new Color(34, 139, 34));
+        p1.setBorder(new TitledBorder(new LineBorder(new Color(173, 216, 230), 2), "Create-Account", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(173, 216, 230)));
+        add(p1);
         
-        l1 = new JLabel("Meter Number");
-        l1.setBounds(99, 240, 152, 26);
+        JLabel l1 = new JLabel("Username");
         l1.setForeground(Color.DARK_GRAY);
         l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        contentPane.add(l1);
-        l1.setVisible(false);
-
+        l1.setBounds(100, 50, 100, 20);
+        p1.add(l1);
+        
         t1 = new JTextField();
-        t1.setBounds(265, 240, 148, 20);
-        contentPane.add(t1);
-        t1.setVisible(false);
+        t1.setBounds(260, 50, 150, 20);
+        p1.add(t1);
         
-        comboBox.addItemListener(new ItemListener(){
-            @Override
-            public void itemStateChanged(ItemEvent ae){
-                String user = (String) comboBox.getSelectedItem();
-                if(user.equals("Customer")){
-                    l1.setVisible(true);
-                    t1.setVisible(true);
-                }else{
-                    l1.setVisible(false);
-                    t1.setVisible(false);
-                }
-            }
+        JLabel l2 = new JLabel("Name");
+        l2.setForeground(Color.DARK_GRAY);
+        l2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        l2.setBounds(100, 90, 100, 20);
+        p1.add(l2);
+        
+        t2 = new JTextField();
+        t2.setBounds(260, 90, 150, 20);
+        p1.add(t2);
+        
+        
+        JLabel l3 = new JLabel("Password");
+        l3.setForeground(Color.DARK_GRAY);
+        l3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        l3.setBounds(100, 130, 100, 20);
+        p1.add(l3);
+        
+        t3 = new JTextField();
+        t3.setBounds(260, 130, 150, 20);
+        p1.add(t3);
+        
+        
+        JLabel l4 = new JLabel("Create Account As");
+        l4.setForeground(Color.DARK_GRAY);
+        l4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        l4.setBounds(100, 170, 140, 20);
+        p1.add(l4);
+        
+        
+        JLabel l5 = new JLabel("Meter Number");
+        l5.setForeground(Color.DARK_GRAY);
+        l5.setFont(new Font("Tahoma", Font.BOLD, 14));
+        l5.setBounds(100, 210, 100, 20);
+        l5.setVisible(false);
+        p1.add(l5);
+        
+        t4 = new JTextField();
+        t4.setBounds(260, 210, 150, 20);
+        t4.setVisible(false);
+        p1.add(t4);
+        
+        c1 = new Choice();
+        c1.add("Admin");
+        c1.add("Customer");
+        c1.setBounds(260, 170, 150, 20);
+        p1.add(c1);
+        
+        c1.addItemListener(new ItemListener(){
+           public void itemStateChanged(ItemEvent ae){
+               String user = c1.getSelectedItem();
+               if(user.equals("Customer")){
+                   l5.setVisible(true);
+                   t4.setVisible(true);
+               }else{
+                   l5.setVisible(false);
+                   t4.setVisible(false);
+               }
+           } 
         });
-
-	JLabel lblSecurityQuestion = new JLabel("Create Account As :");
-	lblSecurityQuestion.setForeground(Color.DARK_GRAY);
-	lblSecurityQuestion.setFont(new Font("Tahoma", Font.BOLD, 14));
-	lblSecurityQuestion.setBounds(99, 197, 140, 26);
-	contentPane.add(lblSecurityQuestion);
         
-        ImageIcon c1 = new ImageIcon(ClassLoader.getSystemResource("icon/signupImage.png"));
-        Image i1 = c1.getImage().getScaledInstance(250, 250,Image.SCALE_DEFAULT);
-        ImageIcon i2 = new ImageIcon(i1);
         
-        JLabel l6 = new JLabel(i2);
-        l6.setBounds(430, 50, 250, 250);
-        add(l6);
-
-        textField = new JTextField();
-	textField.setBounds(265, 91, 148, 20);
-	contentPane.add(textField);
-	textField.setColumns(10);
-
-	textField_1 = new JTextField();
-	textField_1.setColumns(10);
-	textField_1.setBounds(265, 128, 148, 20);
-	contentPane.add(textField_1);
-
-        textField_2 = new JTextField();
-	textField_2.setColumns(10);
-	textField_2.setBounds(265, 165, 148, 20);
-	contentPane.add(textField_2);
-
-	b1 = new JButton("Create");
-	b1.addActionListener(this);
-	b1.setFont(new Font("Tahoma", Font.BOLD, 13));
-	b1.setBounds(140, 290, 100, 30);
+        b1 = new JButton("Create");
         b1.setBackground(Color.BLACK);
         b1.setForeground(Color.WHITE);
-	contentPane.add(b1);
-
-	b2 = new JButton("Back");
-	b2.addActionListener(this);
-	b2.setFont(new Font("Tahoma", Font.BOLD, 13));
-	b2.setBounds(300, 290, 100, 30);
-	b2.setBackground(Color.BLACK);
-        b2.setForeground(Color.WHITE);
-	contentPane.add(b2);
-
-	JPanel panel = new JPanel();
-	panel.setForeground(new Color(34, 139, 34));
-	panel.setBorder(new TitledBorder(new LineBorder(new Color(173, 216, 230), 2), "Create-Account",
-			TitledBorder.LEADING, TitledBorder.TOP, null, new Color(173, 216, 230)));
-	panel.setBounds(31, 30, 640, 310);
-        panel.setBackground(Color.WHITE);
-	contentPane.add(panel);
+        b1.setBounds(140, 290, 120, 30);
+        b1.addActionListener(this);
+        p1.add(b1);
         
-        add(contentPane);
-
+        b2 = new JButton("Back");
+        b2.setBackground(Color.BLACK);
+        b2.setForeground(Color.WHITE);
+        b2.setBounds(300, 290, 120, 30);
+        b2.addActionListener(this);
+        p1.add(b2);
+        
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/signupImage.png"));
+        Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel l6 = new JLabel(i3);
+        l6.setBounds(450, 30, 250, 250);
+        p1.add(l6);
     }
     
     public void actionPerformed(ActionEvent ae){
-        try{
-            Conn con = new Conn();
-            
-            if(ae.getSource() == b1){
-                
-                String username = textField.getText();
-                String name = textField_1.getText();
-		String password = textField_2.getText();
-		String user = (String) comboBox.getSelectedItem();
-                String sql = "";
+        if(ae.getSource() == b1){
+            String username = t1.getText();
+            String name = t2.getText();
+            String password = t3.getText();
+            String user = c1.getSelectedItem();
+            String meter = t4.getText();
+            try{
+                Conn c = new Conn();
+                String str = null;
                 if(user.equals("Admin")){
-                    sql = "insert into login values('','"+username+"', '"+name+"', '"+password+"', '"+user+"')";
+                    str = "insert into login values('"+meter+"', '"+username+"', '"+name+"', '"+password+"', '"+user+"')";
                 }else{
-                    sql = "update login set username = '"+username+"', name = '"+name+"', password = '"+password+"', user = '"+user+"' where meter_no = " + t1.getText();
+                    str = "update login set username = '"+username+"', name = '"+name+"', password = '"+password+"', user = '"+user+"' where meter_no = '"+t4.getText()+"'";
                 }
-                con.s.executeUpdate(sql);
-		JOptionPane.showMessageDialog(null, "Account Created Successfully ");
                 
-                new Login().setVisible(true);
-                setVisible(false);
-            }
-            if(ae.getSource() == b2){
+                c.s.executeUpdate(str);
+                JOptionPane.showMessageDialog(null, "Account Created Successfully");
                 this.setVisible(false);
                 new Login().setVisible(true);
-			
+            }catch(Exception e){
+                
             }
-        }catch(Exception e){
-                System.out.println(e);
+        } else if(ae.getSource()== b2){
+            this.setVisible(false);
+            new Login().setVisible(true);
         }
+    }
+    
+    public static void main(String[] args){
+        new Signup().setVisible(true);
     }
 }

@@ -4,10 +4,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Paytm extends JFrame{
+public class Paytm extends JFrame implements ActionListener{
+    String meter;
+    JButton b1;
     Paytm(String meter){
+        this.meter = meter;
         JEditorPane j = new JEditorPane();
         j.setEditable(false);   
+        
+        b1 = new JButton("Back");
+        b1.setBackground(Color.BLACK);
+        b1.setForeground(Color.WHITE);
+        b1.setBounds(500, 20, 120, 25);
+        b1.addActionListener(this);
+        j.add(b1);
 
         try {
             j.setPage("https://paytm.com/electricity-bill-payment");
@@ -20,20 +30,14 @@ public class Paytm extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().add(scrollPane);
         setPreferredSize(new Dimension(800,600));
-                
-        JButton back=new JButton("Back");
-        back.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                new PayBill(meter).setVisible(true);
-            }
-        });
-        back.setBounds(610, 20, 80, 40);
-        j.add(back);
-        
-        setSize(900,600);
-        setLocation(550,220);
+        setSize(800,800);
+        setLocation(250,120);
         setVisible(true);
+    }
+    
+    public void actionPerformed(ActionEvent ae){
+        this.setVisible(false);
+        new PayBill(meter).setVisible(true);
     }
     public static void main(String[] args){
         new Paytm("").setVisible(true);
