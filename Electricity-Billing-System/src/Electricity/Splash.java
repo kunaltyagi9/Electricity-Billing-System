@@ -4,14 +4,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class splash {
+public class Splash {
     public static void main(String[] args){
         fframe f1 = new fframe();
         f1.setVisible(true);
         int i;
         int x=1;
         for(i=2; i<=600; i+=4, x+=1){
-            f1.setLocation(800 - ((i+x)/2), 500 - (i/2));
+            f1.setLocation(700 - ((i+x)/2), 400 - (i/2));
             f1.setSize(i+x,i);
             try{
                 Thread.sleep(10);

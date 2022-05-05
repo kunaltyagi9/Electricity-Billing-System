@@ -12,7 +12,7 @@ public class LastBill extends JFrame implements ActionListener{
     Choice c1;
     JPanel p1;
     LastBill(){
-        setSize(500,900);
+        setSize(500,700);
         setLayout(new BorderLayout());
         
         p1 = new JPanel();
@@ -52,7 +52,7 @@ public class LastBill extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae){
         try{
-            conn c = new conn();
+            Conn c = new Conn();
 
             ResultSet rs = c.s.executeQuery("select * from emp where meter_number="+c1.getSelectedItem());
             

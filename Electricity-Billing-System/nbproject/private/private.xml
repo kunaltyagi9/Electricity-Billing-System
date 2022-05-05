@@ -2,6 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Paytm.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/NewCustomer.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/DepositDetails.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/CustomerDetails.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/CalculateBill.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/PayBill.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/MeterInfo.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/GenerateBill.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/BillDetails.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Conn.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Splash.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/UpdateInformation.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Signup.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/LastBill.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Login.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/Project.java</file>
+            <file>file:/E:/JAVA/Electricity-Billing-System/Electricity-Billing-System/src/Electricity/ViewInformation.java</file>
+        </group>
     </open-files>
 </project-private>
