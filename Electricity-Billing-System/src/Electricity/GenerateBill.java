@@ -14,6 +14,7 @@ public class GenerateBill extends JFrame implements ActionListener{
     String meter;
     GenerateBill(String meter){
         this.meter = meter;
+
         setSize(500,700);
         setLayout(new BorderLayout());
         

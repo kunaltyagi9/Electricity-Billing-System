@@ -143,23 +143,7 @@ public class CalculateBill extends JFrame implements ActionListener{
         setSize(750,500);
         setLocation(400,150);
     }
-    
-    public int calculateUnits(int units){
-        if (units <= 100 && units > 0) { 
-            return units * 10;
-        } 
-        else if ((units <= 200) && (units > 100)){ // 122 -> 1330
-            return ((100 * 10)+(units - 100)* 15);  // 1000 + 15 * 22 => 1330
-        } 
-        else if((units <= 300) && (units > 200)) { // 220 -> 2900
-            return ((100 * 10) + (100 * 15)+ (units - 200)* 20);  // 1000 + 1500 + 400 = 2900
-        } 
-        else if (units > 300) { 
-            return ((100 * 10) + (100 * 15) + (100 * 20) + (units - 300) * 25); 
-        } 
-        return 0;
-    }
-    
+
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == b1){
             String meter_no = c1.getSelectedItem();
@@ -173,8 +157,9 @@ public class CalculateBill extends JFrame implements ActionListener{
                 Conn c = new Conn();
                 ResultSet rs = c.s.executeQuery("select * from tax");
                 while(rs.next()){
-                    total_bill = calculateUnits(units_consumed);
-                    System.out.println(total_bill);
+
+                    total_bill = units_consumed * Integer.parseInt(rs.getString("cost_per_unit")); // 120 * 7
+
                     total_bill += Integer.parseInt(rs.getString("meter_rent"));
                     total_bill += Integer.parseInt(rs.getString("service_charge"));
                     total_bill += Integer.parseInt(rs.getString("service_tax"));

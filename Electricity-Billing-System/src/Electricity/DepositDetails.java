@@ -17,6 +17,7 @@ public class DepositDetails extends JFrame implements ActionListener{
     int i=0, j=0;
     DepositDetails(){
         super("Deposit Details");
+
         setSize(700,700);
         setLocation(400,100);
         setLayout(null);

@@ -101,7 +101,7 @@ public class Signup extends JFrame implements ActionListener{
         t3.setBounds(260, 210, 150, 20);
         p1.add(t3);
         
-        
+ 
         c1.addItemListener(new ItemListener(){
            public void itemStateChanged(ItemEvent ae){
                String user = c1.getSelectedItem();

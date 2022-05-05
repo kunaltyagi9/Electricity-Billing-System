@@ -17,7 +17,7 @@ public class UpdateInformation extends JFrame implements ActionListener{
     String meter;
     UpdateInformation(String meter){
         this.meter = meter;
-        
+       
         setBounds(300, 150, 1050, 450);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);

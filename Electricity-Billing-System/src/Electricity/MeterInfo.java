@@ -11,7 +11,7 @@ public class MeterInfo extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9, l10, l11;
     Choice c1, c2, c3,c4, c5;
     JButton b1,b2;
-    MeterInfo(String meter){
+    MeterInfo(String meter){        
         setLocation(400,200);
         setSize(700,500);
         

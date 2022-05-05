@@ -9,8 +9,7 @@ public class Conn{
         try{  
             c =DriverManager.getConnection("jdbc:mysql:///electricity","root","codeforinterview");    
             s =c.createStatement();  
-            
-           
+ 
         }catch(Exception e){ 
             System.out.println(e);
         }  

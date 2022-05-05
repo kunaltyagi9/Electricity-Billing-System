@@ -15,17 +15,17 @@ public class BillDetails extends JFrame{
     BillDetails(String meter){
         super("Bill Details");
         setSize(700,650);
+
         setLocation(400,150);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
         
         t1 = new JTable(y,x);
-        System.out.println(meter); 
+
        try{
             Conn c  = new Conn();
             String s1 = "select * from bill where meter = '"+meter+"'";
             ResultSet rs  = c.s.executeQuery(s1);
-            System.out.println(rs);
             
             t1.setModel(DbUtils.resultSetToTableModel(rs));
             
